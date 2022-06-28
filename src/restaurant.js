@@ -95,13 +95,42 @@
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 const restaurant = {};
-const addOrder = (order) => restaurant.consumption.push(order);
+const addOrder = (...order) => restaurant.consumption.push(...order);
+
+/*  const calcPay = () => {
+  let soma = 0;
+    const menu = restaurant.fetchMenu();
+    const consumido = restaurant.consumption;
+    consumido.forEach((element) => {
+    soma += restaurant.consumption.element;
+    console.log(soma);
+    return restaurant.pay.push(soma);
+  });
+};  */
+const calcPay = () => {
+  let soma = 0;
+  const menu = restaurant.fetchMenu();
+  const consumList = restaurant.consumption;
+  for (let i = 0; i < consumList.length; i += 1) {
+    if (menu.food[consumList[i]]) {
+      soma += menu.food[consumList[i]];
+    } else if (menu.drink[consumList[i]]) {
+      soma += menu.drink[consumList[i]];
+    }
+  }
+  return soma + soma * 0.1; 
+};
 
 const createMenu = (obj) => {
   restaurant.fetchMenu = () => obj;
   restaurant.consumption = [];
   restaurant.order = addOrder;
+  restaurant.pay = calcPay;
   return restaurant;
 };
- 
+
+/*  createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
+addOrder('coxinha', 'agua');
+console.log(restaurant);
+  */
 module.exports = createMenu;

@@ -104,7 +104,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order("coxinha");
     // objetoRetornado.consumption // Retorno: ["coxinha"]
     // ```
-    functEx.order('coxinha')
+    functEx.order('coxinha');
     expect(functEx.consumption).toEqual(['coxinha']);
 
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
@@ -119,6 +119,11 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
 
+    functEx.order('agua');
+    functEx.order('sopa');
+    functEx.order('cerveja');
+    expect(functEx.consumption).toEqual(['coxinha','agua','sopa','cerveja']);
+
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
 
@@ -129,6 +134,9 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order('coxinha');
     // objetoRetornado.consumption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
+    functEx.order('sopa');
+    expect(functEx.consumption).toEqual(['coxinha','agua','sopa','cerveja','sopa']);
+
 
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -140,6 +148,8 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
+
+    expect(functEx.pay()).toBeCloseTo(37.95);
   
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
