@@ -10,7 +10,7 @@
   - Escrever funções de forma que elas atendam a testes já implementados;
   - Escrever testes e funções utilizando uma abordagem de desenvolvimento orientado a testes.
 
- ## Requisitos - 100%
+## Requisitos - 100%
 
 - [x] 1. Implemente a função `average`
 
